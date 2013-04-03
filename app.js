@@ -40,6 +40,9 @@ app.get('/', function(req, res) {
 app.get('/index2', function(req, res) {
   res.render('index2');
 });
+app.get('/aboutus', function(req, res) {
+  res.render('aboutus');
+});
 
 app.get('/intro_plant', function(req, res) {
   res.render('about');
