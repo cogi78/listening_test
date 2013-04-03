@@ -37,6 +37,9 @@ app.get('/sh', function(req, res) {
 app.get('/', function(req, res) {
   res.render('index');
 });
+app.get('/index2', function(req, res) {
+  res.render('index2');
+});
 
 app.get('/intro_plant', function(req, res) {
   res.render('about');
