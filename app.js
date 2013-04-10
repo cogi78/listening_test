@@ -27,12 +27,6 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-//app.get('/', routes.index);
-//app.get('/users', user.list);
-
-app.get('/sh', function(req, res) {
-  res.render('sh');
-});
 
 app.get('/', function(req, res) {
   res.render('index');
@@ -49,21 +43,15 @@ app.get('/postlist', function(req, res) {
 app.get('/login', function(req, res) {
   res.render('login');
 });
-
-app.get('/intro_plant', function(req, res) {
-  res.render('about');
+app.get('/meetproblem', function(req, res) {
+  res.render('meetproblem');
+});
+app.get('/sponsor', function(req, res) {
+  res.render('sponsor');
 });
 
-app.get('/searchresault', function(req, res) {
-  res.render('resault');
-});
-app.get('/resaultcontent', function(req, res) {
-  res.render('content');
-});
 
-app.get('/problems', function(req, res) {
-  res.render('problems');
-});
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
