@@ -28,10 +28,8 @@ app.configure('development', function(){
 });
 
 
+
 app.get('/', function(req, res) {
-  res.render('index');
-});
-app.get('/index2', function(req, res) {
   res.render('index2');
 });
 app.get('/aboutus', function(req, res) {
