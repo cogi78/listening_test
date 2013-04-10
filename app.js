@@ -43,6 +43,12 @@ app.get('/index2', function(req, res) {
 app.get('/aboutus', function(req, res) {
   res.render('aboutus');
 });
+app.get('/postlist', function(req, res) {
+  res.render('postlist');
+});
+app.get('/login', function(req, res) {
+  res.render('login');
+});
 
 app.get('/intro_plant', function(req, res) {
   res.render('about');
