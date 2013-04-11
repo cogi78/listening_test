@@ -2567,7 +2567,10 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 
   line-height:40px;
 }
-
+.addRaw{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 
 
 /* # Media queries

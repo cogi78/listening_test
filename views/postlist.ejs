@@ -6,10 +6,10 @@
 		<div id="container">
 			<div id="sidebar">
 				<div class="sidebar-tabs" data-easytabs="true" style="">
-			        <ul class="tabs-nav two-items">
+			        <!-- <ul class="tabs-nav two-items">
 			            <li class="active"><a href="#general" title="" class="active" style="line-height:35px">搜尋設定</a></li>
 			            <li class=""><a href="#stuff" title="" class="" style="line-height:35px">收藏福利清單</a></li>
-			        </ul>
+			        </ul> -->
 			        <div id="general" style="display: block; position: static; visibility: visible;" class="active">
 			        	<form class="search widget" action="#">
 				    		<div class="autocomplete-append">
@@ -39,71 +39,14 @@
 							<div class="btn btn-success">新增</div>
 							<br/>
 							新增其他Tag:
-							<div class="controls">
-                                <div class="select2-container" id="s2id_autogen2"><a href="javascript:void(0)" onclick="return false;" class="select2-choice select2-default" tabindex="-1">   <span>請選擇性別...</span><abbr class="select2-search-choice-close" style="display: none;"></abbr>   <div><b></b></div></a><input class="select2-focusser select2-offscreen" type="text"></div><select data-placeholder="Choose a Country..." class="select select2-offscreen" tabindex="-1">
-                                    <option value=""></option> 
-                                    <option value="Cambodia">Cambodia</option> 
-                                    <option value="Cameroon">Cameroon</option> 
-                                    <option value="Canada">Canada</option> 
-                                    <option value="Cape Verde">Cape Verde</option> 
-                                </select>
-                            </div>
-							有無重大傷病
-							<div class="controls">
-                                <div class="select2-container" id="s2id_autogen2"><a href="javascript:void(0)" onclick="return false;" class="select2-choice select2-default" tabindex="-1">   <span>請選擇傷病史...</span><abbr class="select2-search-choice-close" style="display: none;"></abbr>   <div><b></b></div></a><input class="select2-focusser select2-offscreen" type="text"></div><select data-placeholder="Choose a Country..." class="select select2-offscreen" tabindex="-1">
-                                    <option value=""></option> 
-                                    <option value="Cambodia">Cambodia</option> 
-                                    <option value="Cameroon">Cameroon</option> 
-                                    <option value="Canada">Canada</option> 
-                                    <option value="Cape Verde">Cape Verde</option> 
-                                </select>
-                            </div>
-                            有無罕見疾病
-                            <div class="controls">
-                                <div class="select2-container" id="s2id_autogen2"><a href="javascript:void(0)" onclick="return false;" class="select2-choice select2-default" tabindex="-1">   <span>請選擇罕見疾病...</span><abbr class="select2-search-choice-close" style="display: none;"></abbr>   <div><b></b></div></a><input class="select2-focusser select2-offscreen" type="text"></div><select data-placeholder="Choose a Country..." class="select select2-offscreen" tabindex="-1">
-                                    <option value=""></option> 
-                                    <option value="Cambodia">Cambodia</option> 
-                                    <option value="Cameroon">Cameroon</option> 
-                                    <option value="Canada">Canada</option> 
-                                    <option value="Cape Verde">Cape Verde</option> 
-                                </select>
-                            </div>
-                            身心障礙程度
-                            <div class="controls">
-                                <div class="select2-container" id="s2id_autogen2"><a href="javascript:void(0)" onclick="return false;" class="select2-choice select2-default" tabindex="-1">   <span>請選擇身心障礙程度...</span><abbr class="select2-search-choice-close" style="display: none;"></abbr>   <div><b></b></div></a><input class="select2-focusser select2-offscreen" type="text"></div><select data-placeholder="Choose a Country..." class="select select2-offscreen" tabindex="-1">
-                                    <option value=""></option> 
-                                    <option value="Cambodia">Cambodia</option> 
-                                    <option value="Cameroon">Cameroon</option> 
-                                    <option value="Canada">Canada</option> 
-                                    <option value="Cape Verde">Cape Verde</option> 
-                                </select>
-                            </div>
+							<input type="text" placeholder="Tag名" name="tagname" class="span12" >
+							<input type="text" placeholder="同義詞" name="similiar_name" class="span12">
+							<div class="btn btn-danger">確定</div>
 						</div>
 				        <div class="widget">
-				        	<h6 class="widget-name"><i class="ico-star"></i>他人推薦福利搜尋組合</h6>
-				        	<ul class="social-stats">
-				        		<li>
-				        			<div style="width:20px;height:20px;margin-top:10px;border:1px solid #ccc;float:left;margin-left:0;border-radius:20px;"></div>
-				        			<div style="margin-left:30px">
-					        			<h4>聽障朋友買車</h4>
-					        			<span>身障 買車 </span>
-					        		</div>
-				        		</li>
-				        		<li>
-				        			<div style="width:20px;height:20px;margin-top:10px;border:1px solid #ccc;float:left;margin-left:0;border-radius:20px;"></div>
-				        			<div style="margin-left:30px">
-					        			<h4>肢障朋友申請輔具</h4>
-					        			<span>身障 輔具申請</span>
-					        		</div>
-				        		</li>
-				        		<li>
-				        			<div style="width:20px;height:20px;margin-top:10px;border:1px solid #ccc;float:left;margin-left:0;border-radius:20px;"></div>
-				        			<div style="margin-left:30px">
-					        			<h5>育兒基金</h5>
-					        			<span>育兒基金申請 </span>
-					        		</div>
-				        		</li>
-				        	</ul>
+				        	<a href="#">特殊情況？無法建立？</a>
+				        	<br/>
+				        	<a href="#">檢舉惡意內容？</a>
 				        </div>
 			        </div>
 			    </div>
@@ -111,7 +54,69 @@
 		    <div id="content">
 		    	<div class="wrapper">
 		    		<div class="row-fluid">
-		    			<div class="span7">
+						<div class="span12">
+							<h5 style="text-align:center;margin-top:10px;">新增福利資源</h5>
+						</div>
+					</div>
+		    		<!-- 當 -->
+		    		<div class="widget">
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="row-fluid addRaw">
+								＊<input type="text" placeholder="法條.福利名稱"name="username" class="span11">
+								</div>
+							</div>
+						</div>
+						<div class="navbar">
+							<div class="navbar-inner">
+								<p>本人申請的條件</p>
+								<div class="row-fluid addRaw">
+								＊<input type="text" placeholder="法條.福利名稱"name="username" class="span11">
+								</div>
+							</div>
+						</div>
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="row-fluid addRaw">
+								<p>補助項目</p>
+								1)<input type="text" placeholder="法條.福利名稱"name="username" class="span11">
+								</div>
+							</div>
+						</div>
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="row-fluid addRaw">
+								<p>＊資料來源</p>
+								1)<input type="text" placeholder="請輸入資料來源"name="username" class="span11">
+								</div>
+							</div>
+						</div>
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="row-fluid addRaw">
+								<p>申請程序：</p>
+								1)<input type="text" placeholder="請務必詳細說明"name="username" class="span11">
+								</div>
+							</div>
+						</div>
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="row-fluid addRaw">
+								<p>相關法條.福利：</p>
+								1)<input type="text" placeholder="請務必詳細說明"name="username" class="span11">
+								</div>
+							</div>
+						</div>
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="row-fluid addRaw">
+								相關檔案:
+								<br/>
+								<input type="text" name="username" class="span8">
+								</div>
+							</div>
+						</div>
+						<div class="span12">
 				    		<ul class="round-buttons">
 								<li><div class="depth" style="background-color:#ef705b;"><a href="" title="" class="tip" data-original-title="Add new post" ><i style="font-size:16px;line-height:60px">說明</i></a></div></li>
 								 <li><div class="depth" style="background-color:#"><a href="" title="" class="tip" data-original-title="View statement"><i style="font-size:16px;line-height:60px">儲存</i></a></div></li>
@@ -119,70 +124,6 @@
 								 <li><div class="depth" style="background-color:#4ca15b;"><a href="" title="" class="tip" data-original-title="Add new post" ><i style="font-size:16px;line-height:60px">清空</i></a></div></li>
 							</ul>
 						</div>
-						<div class="span5">
-							<h5 style="font-style: italic;margin-top:50px;">新增福利資源</h5>
-						</div>
-					</div>
-		    		<!-- 當 -->
-		    		<div class="widget">
-						<div class="navbar">
-							<div class="navbar-inner">
-								<h6>當前搜尋條件:</h6>
-								<div class="btn btn-success">高雄市政府</div>
-								<div class="btn btn-success">身障（聽障）</div><div class="btn btn-success">輔具申請</div>
-								<button type="button" class="btn btn-info pull-right">儲存查詢組合</button>
-								<button type="button" class="btn btn-danger pull-right">清空查詢</button>
-							</div>
-						</div>
-				        <div class="well invoice">
-			                <div class="invoice-head">
-			                    <a href="index.html" title="invoice" class="invoice-logo"><h1>身心障礙輔具補助辦法</h1></a>
-			                    <ul class="pull-right minus-list invoice-data">
-			                        <li>符合關鍵字： <div class="btn">身障</div><div class="btn">輔具申請</div></li>
-			                        <li>其他關鍵字： 
-			                        </li>
-			                    </ul>
-			                </div>
-			                <div class="invoice-head">
-			                    <a href="index.html" title="invoice" class="invoice-logo"><h1>聲暉協會輔具申請諮詢</h1></a>
-			                    <ul class="pull-right minus-list invoice-data">
-			                        <li>符合關鍵字： <div class="btn">身障</div><div class="btn">輔具申請</div></li>
-			                        <li>其他關鍵字： 
-			                        </li>
-			                    </ul>
-			                </div>	
-			                <div class="invoice-head">
-			                    <a href="index.html" title="invoice" class="invoice-logo"><h1>長庚醫院輔具申請檢查事項</h1></a>
-			                    <ul class="pull-right minus-list invoice-data">
-			                        <li>符合關鍵字： <div class="btn">身障</div><div class="btn">輔具申請</div></li>
-			                        <li>其他關鍵字： 
-			                        </li>
-			                    </ul>
-			                </div>		                
-			            </div>
-			            <div class="navbar">
-							<div class="navbar-inner">
-								<h6>增加搜尋條件</h6>
-							</div>
-						</div>
-			            <div class="well invoice">
-			                <div class="invoice-head">
-			                    <a href="index.html" title="invoice" class="invoice-logo"><h1>BlaBla...</h1></a>
-			                    <ul class="pull-right minus-list invoice-data">
-			                        <li>符合關鍵字： <div class="btn">身障</div><div class="btn">輔具申請</div></li>
-			                        <li>其他關鍵字： 
-			                        </li>
-			                    </ul>
-			                </div>
-			                <div class="invoice-head">
-			                    <a href="index.html" title="invoice" class="invoice-logo"><h1>BlaBla...</h1></a>
-			                    <ul class="pull-right minus-list invoice-data">
-			                        <li>符合關鍵字： <div class="btn">身障</div><div class="btn">輔具申請</div></li>
-			                        <li>其他關鍵字： 
-			                        </li>
-			                    </ul>
-			                </div>
-				        </div>
                 	</div>
 		    	</div>
 		    </div>
