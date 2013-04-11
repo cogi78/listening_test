@@ -27,8 +27,6 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-
-
 app.get('/', function(req, res) {
   res.render('index2');
 });
@@ -47,9 +45,6 @@ app.get('/meetproblem', function(req, res) {
 app.get('/sponsor', function(req, res) {
   res.render('sponsor');
 });
-
-
-
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

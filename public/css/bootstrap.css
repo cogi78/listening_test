@@ -2537,6 +2537,37 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 { margin-top: 6px; }
 
 
+/* listening 福利請聽網站版型 */
+.notice_fr{
+  width: 100px;
+  height: 80px;
+  z-index: 999;
+  position: fixed;
+  top:80%;
+  left: 0;
+}
+.notice_fr i {
+  color: #fff;
+}
+.help_fr{
+  width: 80px;
+  height: 38px;
+  background: #ef705b;
+  color: #fff;
+  font-size: 14px;
+  
+  line-height:40px;
+}
+.add_fr{
+  width: 80px;
+  margin-top: 2px;
+  height: 38px;
+  background: #59b3e7;
+  color: #fff;
+
+  line-height:40px;
+}
+
 
 
 /* # Media queries
