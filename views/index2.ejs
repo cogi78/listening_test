@@ -135,7 +135,7 @@
 						<div class="span12">
 							<button class="btn" style="float:left;diplay:inline-block;margin-top:5px;">網站導覽</button>
 							<h5 style="font-style: italic;margin-top:10px;text-align:center;diplay:inline-block">一個成功的社會並不是看富裕的人過得多優渥，而是弱勢的如何自在的生存
-							<button class="btn" style="float:right;diplay:inline-block;margin-top:-5px;margin-left:2px" ng-click="isCollapsed = !isCollapsed"><a class="fullview"></a></button>
+							<button class="btn" style="float:right;diplay:inline-block;margin-top:-5px;margin-left:2px"><a class="fullview"></a></button>
 							<button class="btn" style="float:right;diplay:inline-block;margin-top:-5px;" ng-click="isCollapsed = !isCollapsed">隱藏</button></h5>
 							
 						</div>
@@ -305,6 +305,11 @@
 		    <%= include footer %>
 		</div>
 		<script type="text/javascript">
+			$('.fullview').click(function(){
+			    $("body").toggleClass("clean");
+			    $('#sidebar').toggleClass("hide-sidebar mobile-sidebar");
+			    $('#content').toggleClass("full-content");
+			});
 			$('.sidebar-tabs').easytabs({
 				animationSpeed: 150,
 				collapsible: false,
