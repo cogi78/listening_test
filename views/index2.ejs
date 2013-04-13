@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<%= include head %>
-	<body>
+	<body ng-app="lsMain">
 		<%= include header %>
-		<div id="container">
+		<div class="helpmediv">
+			445345
+			<div class="btn cleanhelp">11</div>
+		</div>
+		<div id="container" ng-controller="lsController">
 			<div id="sidebar">
 				<div class="sidebar-tabs" data-easytabs="true" style="">
 			        <ul class="tabs-nav two-items">
-			            <li class="active"><a href="#general" title="" class="active" style="line-height:35px">搜尋設定</a></li>
+			            <li class="active"><a href="#general" title="" class="active" style="line-height:35px" opentab>搜尋設定</a></li>
 			            <li class=""><a href="#stuff" title="" class="" style="line-height:35px">收藏福利清單</a></li>
 			        </ul>
 			        <div id="general" style="display: block; position: static; visibility: visible;" class="active">
@@ -86,13 +90,16 @@
 				        			<div style="margin-left:30px">
 					        			<h4>聽障朋友買車</h4>
 					        			<span>身障 買車 </span>
+					        			<div class="btn">儲存</div>	
 					        		</div>
+
 				        		</li>
 				        		<li>
 				        			<div style="width:20px;height:20px;margin-top:10px;border:1px solid #ccc;float:left;margin-left:0;border-radius:20px;"></div>
 				        			<div style="margin-left:30px">
 					        			<h4>肢障朋友申請輔具</h4>
 					        			<span>身障 輔具申請</span>
+					        			<div class="btn">儲存</div>	
 					        		</div>
 				        		</li>
 				        		<li>
@@ -100,6 +107,7 @@
 				        			<div style="margin-left:30px">
 					        			<h5>育兒基金</h5>
 					        			<span>育兒基金申請 </span>
+					        			<div class="btn">儲存</div>	
 					        		</div>
 				        		</li>
 				        	</ul>
@@ -119,17 +127,20 @@
 		    </div>
 		    <div id="content">
 		    	<div class="wrapper">
+		    		<div ng-controller="CollapseDemoCtrl">
 		    		<div class="row-fluid">
 						<div class="span12">
-							<h5 style="font-style: italic;margin-top:10px;text-align:center">一個成功的社會並不是看富裕的人過得多優渥，而是弱勢的如何自在的生存</h5>
+							<button class="btn" style="float:left;diplay:inline-block;margin-top:5px;">網站導覽</button></h5>
+							<h5 style="font-style: italic;margin-top:10px;text-align:center;diplay:inline-block">一個成功的社會並不是看富裕的人過得多優渥，而是弱勢的如何自在的生存
+							<button class="btn" style="float:right;diplay:inline-block;margin-top:-5px;" ng-click="isCollapsed = !isCollapsed">隱藏</button></h5>
+							
 						</div>
 					</div>
-		    		<div class="actions-wrapper">
-					    <!-- 近期 -->
-					    <!-- 123<br/>
-					    <br/>
-					    <br/>
-					    <br/> -->
+					
+						
+					<div class="actions-wrapper" collapse="isCollapsed">
+		    		<div>內容內容內容</div> 
+					</div>
 					</div>
 					<div class="widget">
 						地區：
@@ -146,25 +157,28 @@
 	                    	</select>
 	                    </div>
 	                    福利類別：
-	                    <div class="btn">教育</div>       
-						<div class="btn">就業</div>
-						<div class="btn">交通</div>
-						<div class="btn">住屋補助</div>
-						<div class="btn">生活津貼</div>
-						<div class="btn">稅捐減免</div>
-						<div class="btn">保健醫療</div>
-						<div class="btn">支持服務(輔具申請)</div>
-						<div class="btn">經濟扶助</div>
+	                    <div class="btn" ng-click="sel('education','教育')">教育</div>       
+						<div class="btn" ng-click="sel('work','工作')">工作</div>
+						<div class="btn" ng-click="sel('transportation','交通')">交通</div>
+						<div class="btn" ng-click="sel('living','購屋住屋')">購屋住屋</div>
+						<div class="btn" ng-click="sel('allowance','生活津貼')">生活津貼</div>
+						<div class="btn" ng-click="sel('tax','稅捐減免')">稅捐減免</div>
+						<div class="btn" ng-click="sel('medical','醫療照顧')">醫療照顧</div>
+						<div class="btn" ng-click="sel('assistivedevice','輔具申請')">輔具申請</div>
+						<div class="btn" ng-click="sel('emergency','急難救助')">急難救助</div>
+						<div class="btn" ng-click="sel('socialinsurance','社會保險補助')">社會保險補助</div>
+						
 					</div>
 		    		<!-- 當 -->
 		    		<div class="widget">
 						<div class="navbar">
 							<div class="navbar-inner">
 								<h6>當前搜尋條件:</h6>
-								<div class="btn btn-success">高雄市政府</div>
-								<div class="btn btn-success">身障（聽障）</div><div class="btn btn-success">輔具申請</div>
+								<!-- <div class="btn btn-success">高雄市政府</div>
+								<div class="btn btn-success">身障（聽障）</div><div class="btn btn-success">輔具申請</div> -->
+								<p>{{selList}}
 								<button type="button" class="btn btn-info pull-right">儲存查詢組合</button>
-								<button type="button" class="btn btn-danger pull-right">清空查詢</button>
+								<button type="button" class="btn btn-danger pull-right" ng-click="clearsel()">清空查詢</button>
 							</div>
 						</div>
 				        <div class="well invoice">

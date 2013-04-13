@@ -2571,6 +2571,15 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
   padding-top: 10px;
   padding-bottom: 10px;
 }
+.helpmediv{
+  position: fixed;
+  z-index: 999;
+  width: 380px;
+  height: 400px;
+  background: #fff;
+  border: 1px solid #aaa;
+  display: none;
+}
 
 
 /* # Media queries
