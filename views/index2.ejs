@@ -143,20 +143,11 @@
 					
 						
 					<div class="actions-wrapper" collapse="isCollapsed">
-		    		<div class="actions" data-easytabs="true" style="">
+		    		<div class="actions">
+				    	<div id="user-stats">
 
-				    	<div id="user-stats" style="display: none;" class="">
-					        <ul class="round-buttons">
-					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="Add new post"><i class="icon-plus"></i></a></div></li>
-					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="View statement"><i class="icon-signal"></i></a></div></li>
-					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="Media posts"><i class="icon-reorder"></i></a></div></li>
-					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="RSS feed"><i class="icon-rss"></i></a></div></li>
-					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="Create new task"><i class="icon-tasks"></i></a></div></li>
-					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="Layout settings"><i class="icon-cogs"></i></a></div></li>
-					        </ul>
 				    	</div>
-
-				    	<div id="quick-actions" style="display: block; position: static; visibility: visible;" class="active">
+				    	<div id="quick-actions">
 				    		<ul class="statistics">
 				    			<li>
 				    				<div class="top-info">
@@ -209,14 +200,13 @@
 				    		</ul>
 				    	</div>
 
-				    	<div id="map" style="display: none; position: static; visibility: visible;" class="">
+				    	<div id="map">
 				    		
 				    	</div>
-
 				    	<ul class="action-tabs">
-				    		<li class=""><a href="#user-stats" title="" class="">最新消息</a></li>
-				    		<li class="current"><a href="#quick-actions" title="" class="current">本站流量統計</a></li>
-				    		<li class=""><a href="#map" title="" id="map-link" class="">福利庫統計</a></li>
+				    		<li ><a href="#user-stats">最新消息</a></li>
+				    		<li><a href="#quick-actions">本站流量統計</a></li>
+				    		<li><a href="#map" id="map-link">福利庫統計</a></li>
 				    	</ul>
 				    </div>
 					</div>
@@ -319,6 +309,11 @@
 				animationSpeed: 150,
 				collapsible: false,
 				tabActiveClass: "active"
+			});
+			$('.actions').easytabs({
+				animationSpeed: 300,
+				collapsible: false,
+				tabActiveClass: "current"
 			});
 		</script>
 	</body>
