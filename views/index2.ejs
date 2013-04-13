@@ -7,6 +7,7 @@
 			445345
 			<div class="btn cleanhelp">11</div>
 		</div>
+
 		<div id="container" ng-controller="lsController">
 			<div id="sidebar">
 				<div class="sidebar-tabs" id="sidebar-tabs">
@@ -117,6 +118,11 @@
 			        	<div class="widget">
 		    				<h6 class="widget-name"><i class="ico-star"></i>以下是您所收藏的福利</h6>
 		    			</div>
+		    			<script type="text/javascript">
+		    			 	if(lcstorage != 1){
+							    document.write('<div class="widget"><h3>很抱歉您的瀏覽器不支援此項功能，建議更換到最新版本！</h3></div>');
+							}
+		    			</script>
 		    			<div class="widget">
 		    				<ul class="social-stats">
 				        		<li>
@@ -370,6 +376,7 @@
 				collapsible: false,
 				tabActiveClass: "current"
 			});
+
 		</script>
 	</body>
 </html>
