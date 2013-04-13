@@ -2570,18 +2570,34 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 .addRaw{
   padding-top: 10px;
   padding-bottom: 10px;
+} 
+.bugsenddiv{
+  position: fixed;
+  z-index: 90;
+  width: 380px;
+  height: 450px;
+  background: #fff;
+  border: 1px solid #ccc;
+  display: none;
 }
 .helpmediv{
   position: fixed;
-  z-index: 999;
+  z-index: 89;
   width: 380px;
-  height: 400px;
+  height: 450px;
   background: #fff;
-  border: 1px solid #aaa;
-
+  border: 1px solid #ccc;
+  display: none;
 }
-
-
+.alertbg{
+  background: #000;
+  opacity: .5;
+  position: fixed;
+  z-index: 50;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
 /* # Media queries
 ================================================== */
 

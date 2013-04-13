@@ -3,11 +3,57 @@
 	<%= include head %>
 	<body ng-app="lsMain">
 		<%= include header %>
-		<div class="helpmediv">
-			445345
-			<div class="btn cleanhelp">11</div>
-		</div>
+		<!-- 彈跳視窗部分 -->
+		<div class="alertbg"></div>
+		<div class="helpmediv animated">
+			<div class="widget">
+				<div class="navbar">
+					<div class="navbar-inner"><h6>Bug 回報</h6>
+					</div>
+				</div>
+				<div class="wrapper">
+					<div class="row-fluid">
+					<h5>感謝您對於本系統的支持與愛護，若您有發現本系統有需要改進的Bug或者是錯誤部分，歡迎您來信告知！萬分感謝！</h5>
+					<p>＊為務必填寫</p>
+					*標題：
+					<input type="text" class="span12">
 
+					聯絡Email：
+					<input type="text" class="span12">
+					*內容：
+					<textarea rows="5" cols="5" name="textarea" class="span12"></textarea>
+					<br/><br/>
+					<div class="btn btn-success">送出</div>
+					<div class="btn btn-danger helpmecancel">取消</div>
+					</div>
+				</div>
+	        </div>
+		</div>
+		<div class="bugsenddiv animated">
+			<div class="widget">
+				<div class="navbar">
+					<div class="navbar-inner"><h6>Bug 回報</h6>
+					</div>
+				</div>
+				<div class="wrapper">
+					<div class="row-fluid">
+					<h5>感謝您對於本系統的支持與愛護，若您有發現本系統有需要改進的Bug或者是錯誤部分，歡迎您來信告知！萬分感謝！</h5>
+					<p>＊為務必填寫</p>
+					*標題：
+					<input type="text" class="span12">
+
+					聯絡Email：
+					<input type="text" class="span12">
+					*內容：
+					<textarea rows="5" cols="5" name="textarea" class="span12"></textarea>
+					<br/><br/>
+					<div class="btn btn-success">送出</div>
+					<div class="btn btn-danger bugcancel">取消</div>
+					</div>
+				</div>
+	        </div>
+		</div>
+		<!-- 彈跳視窗部分結束 -->
 		<div id="container" ng-controller="lsController">
 			<div id="sidebar">
 				<div class="sidebar-tabs" id="sidebar-tabs">
@@ -361,6 +407,33 @@
 		    <%= include footer %>
 		</div>
 		<script type="text/javascript">
+			var wWidth = $(window).width();
+			var wHeight = $(window).height();
+			var alLeft = (wWidth-380)/2;
+			var alTop = (wHeight-450)/2;
+			$('.bugsent').bind('click',function(){
+				$('.bugsenddiv').css({'display':'block','top':alTop,'left':alLeft});
+				$('.alertbg').css('display','block');
+				$('.bugsenddiv').addClass('fadeIn');
+			});
+			$('.helpmebtn').bind('click',function(){
+				$('.helpmediv').css({'display':'block','top':alTop,'left':alLeft});
+				$('.alertbg').css('display','block');
+				$('.helpmediv').addClass('fadeIn');
+			});
+
+			$('.bugcancel').bind('click',function(){
+				$('.bugsenddiv').css('display','none');
+				$('.alertbg').css('display','none');
+				$('.bugsenddiv').removeClass('fadeIn');
+			});
+			$('.helpmecancel').bind('click',function(){
+				$('.helpmediv').css('display','none');
+				$('.alertbg').css('display','none');
+				$('.helpmediv').removeClass('fadeIn');
+			});
+
+
 			$('.fullview').click(function(){
 			    $("body").toggleClass("clean");
 			    $('#sidebar').toggleClass("hide-sidebar mobile-sidebar");
