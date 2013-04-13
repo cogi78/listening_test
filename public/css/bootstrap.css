@@ -2583,8 +2583,8 @@ input:focus:invalid:focus, textarea:focus:invalid:focus, select:focus:invalid:fo
 .helpmediv{
   position: fixed;
   z-index: 89;
-  width: 380px;
-  height: 450px;
+  width: 500px;
+  height: 550px;
   background: #fff;
   border: 1px solid #ccc;
   display: none;
