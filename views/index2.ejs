@@ -130,7 +130,7 @@
 		    		<div ng-controller="CollapseDemoCtrl">
 		    		<div class="row-fluid">
 						<div class="span12">
-							<button class="btn" style="float:left;diplay:inline-block;margin-top:5px;">網站導覽</button></h5>
+							<button class="btn" style="float:left;diplay:inline-block;margin-top:5px;">網站導覽</button>
 							<h5 style="font-style: italic;margin-top:10px;text-align:center;diplay:inline-block">一個成功的社會並不是看富裕的人過得多優渥，而是弱勢的如何自在的生存
 							<button class="btn" style="float:right;diplay:inline-block;margin-top:-5px;" ng-click="isCollapsed = !isCollapsed">隱藏</button></h5>
 							
@@ -139,7 +139,82 @@
 					
 						
 					<div class="actions-wrapper" collapse="isCollapsed">
-		    		<div>內容內容內容</div> 
+		    		<div class="actions" data-easytabs="true" style="">
+
+				    	<div id="user-stats" style="display: none;" class="">
+					        <ul class="round-buttons">
+					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="Add new post"><i class="icon-plus"></i></a></div></li>
+					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="View statement"><i class="icon-signal"></i></a></div></li>
+					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="Media posts"><i class="icon-reorder"></i></a></div></li>
+					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="RSS feed"><i class="icon-rss"></i></a></div></li>
+					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="Create new task"><i class="icon-tasks"></i></a></div></li>
+					            <li><div class="depth"><a href="" title="" class="tip" data-original-title="Layout settings"><i class="icon-cogs"></i></a></div></li>
+					        </ul>
+				    	</div>
+
+				    	<div id="quick-actions" style="display: block; position: static; visibility: visible;" class="active">
+				    		<ul class="statistics">
+				    			<li>
+				    				<div class="top-info">
+					    				<a href="#" title="" class="blue-square"><i class="icon-plus"></i></a>
+					    				<strong>12,476</strong>
+					    			</div>
+									<div class="progress progress-micro"><div class="bar" style="width: 60%;"></div></div>
+									<span>User registrations</span>
+				    			</li>
+				    			<li>
+				    				<div class="top-info">
+					    				<a href="#" title="" class="red-square"><i class="icon-hand-up"></i></a>
+					    				<strong>621,873</strong>
+					    			</div>
+									<div class="progress progress-micro"><div class="bar" style="width: 20%;"></div></div>
+									<span>Total clicks</span>
+				    			</li>
+				    			<li>
+				    				<div class="top-info">
+					    				<a href="#" title="" class="purple-square"><i class="icon-shopping-cart"></i></a>
+					    				<strong>562</strong>
+					    			</div>
+									<div class="progress progress-micro"><div class="bar" style="width: 90%;"></div></div>
+									<span>New orders</span>
+				    			</li>
+				    			<li>
+				    				<div class="top-info">
+					    				<a href="#" title="" class="green-square"><i class="icon-ok"></i></a>
+					    				<strong>$45,360</strong>
+					    			</div>
+									<div class="progress progress-micro"><div class="bar" style="width: 70%;"></div></div>
+									<span>General balance</span>
+				    			</li>
+				    			<li>
+				    				<div class="top-info">
+					    				<a href="#" title="" class="sea-square"><i class="icon-group"></i></a>
+					    				<strong>562K+</strong>
+					    			</div>
+									<div class="progress progress-micro"><div class="bar" style="width: 50%;"></div></div>
+									<span>Total users</span>
+				    			</li>
+				    			<li>
+				    				<div class="top-info">
+					    				<a href="#" title="" class="dark-blue-square"><i class="icon-facebook"></i></a>
+					    				<strong>36,290</strong>
+					    			</div>
+									<div class="progress progress-micro"><div class="bar" style="width: 93%;"></div></div>
+									<span>Facebook fans</span>
+				    			</li>
+				    		</ul>
+				    	</div>
+
+				    	<div id="map" style="display: none; position: static; visibility: visible;" class="">
+				    		
+				    	</div>
+
+				    	<ul class="action-tabs">
+				    		<li class=""><a href="#user-stats" title="" class="">最新消息</a></li>
+				    		<li class="current"><a href="#quick-actions" title="" class="current">本站流量統計</a></li>
+				    		<li class=""><a href="#map" title="" id="map-link" class="">福利庫統計</a></li>
+				    	</ul>
+				    </div>
 					</div>
 					</div>
 					<div class="widget">
