@@ -9,12 +9,12 @@
 		</div>
 		<div id="container" ng-controller="lsController">
 			<div id="sidebar">
-				<div class="sidebar-tabs" data-easytabs="true" style="">
+				<div class="sidebar-tabs" id="sidebar-tabs">
 			        <ul class="tabs-nav two-items">
-			            <li class="active"><a href="#general" title="" class="active" style="line-height:35px" opentab>搜尋設定</a></li>
-			            <li class=""><a href="#stuff" title="" class="" style="line-height:35px">收藏福利清單</a></li>
+			            <li class="active"><a href="#general"style="line-height:35px" opentab>搜尋設定</a></li>
+			            <li class=""><a href="#stuff" style="line-height:35px">收藏福利清單</a></li>
 			        </ul>
-			        <div id="general" style="display: block; position: static; visibility: visible;" class="active">
+			        <div id="general">
 			        	<form class="search widget" action="#">
 				    		<div class="autocomplete-append">
 					    		<!-- <ul class="search-options">
@@ -112,6 +112,9 @@
 				        		</li>
 				        	</ul>
 				        </div>
+			        </div>
+			        <div id="stuff">
+			        	111
 			        </div>
 			    </div>
 		    </div>
@@ -311,5 +314,12 @@
 		    </div>
 		    <%= include footer %>
 		</div>
+		<script type="text/javascript">
+			$('.sidebar-tabs').easytabs({
+				animationSpeed: 150,
+				collapsible: false,
+				tabActiveClass: "active"
+			});
+		</script>
 	</body>
 </html>
