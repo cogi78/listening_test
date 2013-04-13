@@ -12,5 +12,18 @@
   <script type="text/javascript" src="/js/ui-bootstrap-0.2.0.min.js"></script>
   <script type="text/javascript" src="/js/collapse.js"></script>
   <script type="text/javascript" src="/js/angular-listening.js"></script>	
-  	
+  <script type="text/javascript" src="/js/modernizr.custom.91888.js"></script>
+  <!--html 5 功能偵測 -->
+  <script type="text/javascript">
+	var lcstorage = 0;
+	if (Modernizr.localstorage) {
+	  // window.localStorage is available!
+	  console.log('可以支援');
+	  lcstorage = 1;
+	} else {
+	  console.log('不可以支援')
+	  // 瀏覽器不支持HTML5 storage :(
+	  // 可以考慮使用dojox.storage 或其他方法
+	}
+	</script>
 </head>
