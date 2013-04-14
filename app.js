@@ -21,61 +21,61 @@ app.configure(function(){
 });
 
 
-var config = require('./config.json');
-//bugsent
-var mongoose = require('mongoose');
-mongoose.connect(config.connectmongodb);
+// var config = require('./config.json');
+// //bugsent
+// var mongoose = require('mongoose');
+// mongoose.connect(config.connectmongodb);
 
-var BugSendSchema = mongoose.Schema({
-  title: String,
-  email: String,
-  content: String
-});
-mongoose.model('BugSend', BugSendSchema);
-var BugSendmodel = mongoose.model('BugSend');
+// var BugSendSchema = mongoose.Schema({
+//   title: String,
+//   email: String,
+//   content: String
+// });
+// mongoose.model('BugSend', BugSendSchema);
+// var BugSendmodel = mongoose.model('BugSend');
 
-//new BugSendmodel( {title:'wrong', email:'test@test.com',content:'wrong'} ).save();
-//--
+// //new BugSendmodel( {title:'wrong', email:'test@test.com',content:'wrong'} ).save();
+// //--
 
-//helpme
-var HelpMeSchema = mongoose.Schema({
-  title: String,
-  email: String,
-  phone: String,
-  social: Boolean,
-  content: String,
-  update:{ type:Date, default: Date.now}
-});
+// //helpme
+// var HelpMeSchema = mongoose.Schema({
+//   title: String,
+//   email: String,
+//   phone: String,
+//   social: Boolean,
+//   content: String,
+//   update:{ type:Date, default: Date.now}
+// });
 
-mongoose.model('Helpme', HelpMeSchema);
+// mongoose.model('Helpme', HelpMeSchema);
 
-var Helpmemodel = mongoose.model('Helpme');
+// var Helpmemodel = mongoose.model('Helpme');
 
-//--
-//recordeuser
-var RecordeUserSchema = mongoose.Schema({
-  memId: Number,
-  username: String,
-  email: String,
-  phone: String
-});
+// //--
+// //recordeuser
+// var RecordeUserSchema = mongoose.Schema({
+//   memId: Number,
+//   username: String,
+//   email: String,
+//   phone: String
+// });
 
-mongoose.model('RecordUser', RecordeUserSchema);
+// mongoose.model('RecordUser', RecordeUserSchema);
 
-var RecordUsermodel = mongoose.model('RecordUser');
-//--
-//UserLikeLaw 
-var UserLikeLawSchema = mongoose.Schema({
-  Id: Number,
-  title: String,
-  liketag: String,
-  peoplelike: String
-});
+// var RecordUsermodel = mongoose.model('RecordUser');
+// //--
+// //UserLikeLaw 
+// var UserLikeLawSchema = mongoose.Schema({
+//   Id: Number,
+//   title: String,
+//   liketag: String,
+//   peoplelike: String
+// });
 
-mongoose.model('UserLikeLaw', UserLikeLawSchema);
+// mongoose.model('UserLikeLaw', UserLikeLawSchema);
 
-var UserLikeLawmodel = mongoose.model('UserLikeLaw');
-//--
+// var UserLikeLawmodel = mongoose.model('UserLikeLaw');
+// //--
 
 
 
@@ -115,23 +115,23 @@ app.post('/bugsend', function(req, res) {
 
 
 
-app.post('/addNewUser',function(req,res){
-  //console.log(req);
-  RecordUsermodel.find({},function(err,results){
-    console.log(results.length);
-    new RecordUsermodel({
-      memId: results.length,
-      username: 'user'+results.length
-    }).save();
-    var userinfo = {
-      userId:results.length,
-      username:'user'+results.length
-    }
-    var JSONinfo = JSON.stringify(userinfo)
-    res.end(JSONinfo);
-  })
-  // new RecordUsermodel();
-})
+// app.post('/addNewUser',function(req,res){
+//   //console.log(req);
+//   RecordUsermodel.find({},function(err,results){
+//     console.log(results.length);
+//     new RecordUsermodel({
+//       memId: results.length,
+//       username: 'user'+results.length
+//     }).save();
+//     var userinfo = {
+//       userId:results.length,
+//       username:'user'+results.length
+//     }
+//     var JSONinfo = JSON.stringify(userinfo)
+//     res.end(JSONinfo);
+//   })
+//   // new RecordUsermodel();
+// })
 
 
 
