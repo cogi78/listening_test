@@ -24,7 +24,18 @@ app.configure(function(){
 var config = require('./config.json');
 //bugsent
 var mongoose = require('mongoose');
-mongoose.connect(config.connectmongodb);
+var uristring = 
+  process.env.MONGOLAB_URI || 
+  process.env.MONGOHQ_URL || 
+  config.connectmongodb;
+
+  mongoose.connect(uristring, function (err, res) {
+  if (err) { 
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
 
 var BugSendSchema = mongoose.Schema({
   title: String,
@@ -134,6 +145,8 @@ app.post('/addNewUser',function(req,res){
 
 
 })
+
+
 
 
 
