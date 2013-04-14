@@ -8,10 +8,10 @@
   "dependencies": {
     "express": "3.0.2",
     "ejs": "*",
-    "mongoose":"*",
+    "mongoose":"*"
   },
   "engines": {
     "node": "0.10.x",
-    "npm":  "1.1.x"
+    "npm":  "1.2.x"
   }
 }
