@@ -115,23 +115,23 @@ app.post('/bugsend', function(req, res) {
 
 
 
-app.post('/addNewUser',function(req,res){
-  //console.log(req);
-  RecordUsermodel.find({},function(err,results){
-    console.log(results.length);
-    new RecordUsermodel({
-      memId: results.length,
-      username: 'user'+results.length
-    }).save();
-    var userinfo = {
-      userId:results.length,
-      username:'user'+results.length
-    }
-    var JSONinfo = JSON.stringify(userinfo)
-    res.end(JSONinfo);
-  })
-  // new RecordUsermodel();
-})
+// app.post('/addNewUser',function(req,res){
+//   //console.log(req);
+//   RecordUsermodel.find({},function(err,results){
+//     console.log(results.length);
+//     new RecordUsermodel({
+//       memId: results.length,
+//       username: 'user'+results.length
+//     }).save();
+//     var userinfo = {
+//       userId:results.length,
+//       username:'user'+results.length
+//     }
+//     var JSONinfo = JSON.stringify(userinfo)
+//     res.end(JSONinfo);
+//   })
+//   // new RecordUsermodel();
+// })
 
 
 
