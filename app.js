@@ -1,4 +1,3 @@
-
 /**
  * Module dependencies.
  */
@@ -8,6 +7,8 @@ var express = require('express')
   //, user = require('./routes/user')
   , http = require('http')
   , path = require('path');
+
+require('./mongosetting')
 
 var app = express();
 
@@ -52,62 +53,6 @@ app.post('/bugsend', function(req, res) {
     new BugSendmodel( {title:req.body.bugtitle, email:req.body.bugemail,content:req.body.bugtextarea} ).save();
     res.render('index2');
 });
-
-//bugsent
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://root:listeningtome@ds031847.mongolab.com:31847/listening_tw');
-
-var BugSendSchema = mongoose.Schema({
-  title: String,
-  email: String,
-  content: String
-});
-mongoose.model('BugSend', BugSendSchema);
-var BugSendmodel = mongoose.model('BugSend');
-
-//new BugSendmodel( {title:'wrong', email:'test@test.com',content:'wrong'} ).save();
-//--
-
-//helpme
-var HelpMeSchema = mongoose.Schema({
-  title: String,
-  email: String,
-  phone: String,
-  social: Boolean,
-  content: String,
-  update:{ type:Date, default: Date.now}
-});
-
-mongoose.model('Helpme', HelpMeSchema);
-
-var Helpmemodel = mongoose.model('Helpme');
-
-//--
-//recordeuser
-var RecordeUserSchema = mongoose.Schema({
-  Id: Number,
-  username: String,
-  email: String,
-  phone: String
-});
-
-mongoose.model('RecordUser', RecordeUserSchema);
-
-var RecordUsermodel = mongoose.model('RecordUser');
-//--
-//UserLikeLaw 
-var UserLikeLawSchema = mongoose.Schema({
-  Id: Number,
-  title: String,
-  liketag: String,
-  peoplelike: String
-});
-
-mongoose.model('UserLikeLaw', UserLikeLawSchema);
-
-var UserLikeLawmodel = mongoose.model('UserLikeLaw');
-//--
-
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
