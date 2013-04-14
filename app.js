@@ -120,7 +120,7 @@ app.post('/bugsend', function(req, res) {
     console.log(req.body.bugtitle);
     console.log(req.body.bugemail);
     console.log(req.body.bugtextarea);
-    new BugSendmodel( {title:req.body.bugtitle, email:req.body.bugemail,content:req.body.bugtextarea} ).save();
+    new BugSendmodel( {title:req.body.bugtitle, email:req.body.bugemail,content:req.body.bugtextarea} ).save(function (err) {if (err) console.log ('Error on save!')});
     res.render('index2');
 });
 
@@ -133,7 +133,7 @@ app.post('/addNewUser',function(req,res){
     new RecordUsermodel({
       memId: results.length,
       username: 'user'+results.length
-    }).save();
+    }).save(function (err) {if (err) console.log ('Error on save!')});
     var userinfo = {
       userId:results.length,
       username:'user'+results.length
