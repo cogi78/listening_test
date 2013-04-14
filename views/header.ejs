@@ -73,20 +73,27 @@
     </div>
     <div class="wrapper">
       <div class="row-fluid">
-      <h5>感謝您對於本系統的支持與愛護，若您有發現本系統有需要改進的Bug或者是錯誤部分，歡迎您來信告知！萬分感謝！</h5>
-      <p>＊為務必填寫</p>
-      *標題：
-      <input type="text" class="span12">
-
-      聯絡Email：
-      <input type="text" class="span12">
-      *內容：
-      <textarea rows="5" cols="5" name="textarea" class="span12"></textarea>
-      <br/><br/>
-      <div class="btn btn-success">送出</div>
-      <div class="btn btn-danger bugcancel">取消</div>
+        <h5>感謝您對於本系統的支持與愛護，若您有發現本系統有需要改進的Bug或者是錯誤部分，歡迎您來信告知！萬分感謝！</h5>
+        <p>＊為務必填寫</p>
+        <form action='/bugsend' method='post'>
+          *標題：
+          <input type="text" name="bugtitle" class="span12">
+          聯絡Email：
+          <input type="text" name="bugemail" class="span12">
+          *內容：
+          <textarea rows="5" cols="5" name="bugtextarea" class="span12"></textarea>
+          <br/><br/>
+          <input type='submit' value='送出' class="btn btn-success">
+          <div class="btn btn-danger bugcancel">取消</div>
+        </form>
       </div>
     </div>
-      </div>
+  </div>
 </div>
 <!-- 彈跳視窗部分結束 -->
+<script type="text/javascript">
+  function sendbug (argument) {
+    // body...
+  }
+</script>
+
