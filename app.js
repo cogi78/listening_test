@@ -68,7 +68,8 @@ var RecordeUserSchema = mongoose.Schema({
   memId: Number,
   username: String,
   email: String,
-  phone: String
+  phone: String,
+  update:{ type:Date, default: Date.now}
 });
 
 mongoose.model('RecordUser', RecordeUserSchema);
@@ -136,7 +137,8 @@ app.post('/addNewUser',function(req,res){
     }).save(function (err) {if (err) console.log ('Error on save!')});
     var userinfo = {
       userId:results.length,
-      username:'user'+results.length
+      username:'user'+results.length,
+      update:''
     }
     var JSONinfo = JSON.stringify(userinfo)
     res.end(JSONinfo);
