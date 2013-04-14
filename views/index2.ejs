@@ -388,6 +388,47 @@
 				  	}
 				});	
 			}
+
+
+			function sendhelpme (){
+				var helpmetitle = $("input[name='helpmetitle']").attr('value'),
+					helpmeemail = $("input[name='helpmeemail']").attr('value'),
+					helpmephone = $("input[name='helpmephone']").attr('value'),
+					helpmetextarea = $("input[name='helpmetextarea']").val(),
+					helpmesocial = $('input[name=optionsRadios]:checked').val();
+				console.log(helpmesocial)
+				// if (helpmetitle=='' || helpmetextarea==''){
+				// 	alert('打*欄位務必填寫！');
+				// 	break;
+				// }
+				var userInfo = JSON.parse(localStorage.listeningUser);
+				// userInfo.phone = helpmephone;
+				// userInfo.email = helpmeemail;
+				var helpmedata = {};
+				helpmedata.username = userInfo.username;
+				helpmedata.title = helpmetitle;
+				
+				// if(helpmeemail!=''){
+					helpmedata.email = helpmeemail;
+				// }
+				// if(helpmephone!=''){
+					helpmedata.phone = helpmephone;
+				// }
+				helpmedata.social = helpmesocial;
+				helpmedata.helpcontent = helpmetextarea;
+				//console.log('helpmedata:'+helpmedata);
+				$.ajax({
+					type: "POST",
+					url: "/helpme",
+					data: helpmedata,
+					success:function( data ) {
+				  		if (data == 'success'){
+				  			alert('已傳送成功！');
+				  		}
+				  	}
+				});	
+			}
+
 			$('.fullview').click(function(){
 			    $("body").toggleClass("clean");
 			    $('#sidebar').toggleClass("hide-sidebar mobile-sidebar");

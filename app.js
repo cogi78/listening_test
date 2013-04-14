@@ -24,18 +24,21 @@ app.configure(function(){
 //var config = require('./config.json');
 //bugsent
 var mongoose = require('mongoose');
+//heroku的寫法
 var uristring = 
   process.env.MONGOLAB_URI || 
   process.env.MONGOHQ_URL || 
   'mongodb://root:listeningtome@ds031847.mongolab.com:31847/listening_tw';
  
-  mongoose.connect(uristring, function (err, res) {
+mongoose.connect(uristring, function (err, res) {
   if (err) { 
     console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
     console.log ('Succeeded connected to: ' + uristring);
   }
 });
+//一般只要
+//mongoose.connect('mongodb://root:listeningtome@ds031847.mongolab.com:31847/listening_tw')
 
 var BugSendSchema = mongoose.Schema({
   title: String,
@@ -89,12 +92,6 @@ mongoose.model('UserLikeLaw', UserLikeLawSchema);
 var UserLikeLawmodel = mongoose.model('UserLikeLaw');
 //--
 
-
-
-
-
-
-
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
@@ -117,6 +114,28 @@ app.get('/meetproblem', function(req, res) {
 app.get('/sponsor', function(req, res) {
   res.render('sponsor');
 });
+app.post('/helpme',function(req,res){
+
+  //console.log(req);
+  new Helpmemodel({
+    user: req.body.username,
+    title: req.body.title,
+    email: req.body.email,
+    phone: req.body.phone,
+    social: req.body.social,
+    content: req.body.helpcontent,
+    update:''
+  }).save(function(err) {
+    if (err) {console.log('Error on save!')}
+    else{
+      res.end('success');
+    }
+
+  });
+
+
+})
+
 app.post('/bugsend', function(req, res) {
     console.log(req.body.bugtitle);
     console.log(req.body.bugemail);
@@ -124,8 +143,6 @@ app.post('/bugsend', function(req, res) {
     new BugSendmodel( {title:req.body.bugtitle, email:req.body.bugemail,content:req.body.bugtextarea} ).save(function (err) {if (err) console.log ('Error on save!')});
     res.render('index2');
 });
-
-
 
 app.post('/addNewUser',function(req,res){
   //console.log(req);
@@ -144,8 +161,6 @@ app.post('/addNewUser',function(req,res){
     res.end(JSONinfo);
   })
   // new RecordUsermodel();
-
-
 })
 
 
