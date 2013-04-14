@@ -21,7 +21,7 @@ app.configure(function(){
 });
 
 
-var config = require('./config.json');
+//var config = require('./config.json');
 //bugsent
 var mongoose = require('mongoose');
 var uristring = 
