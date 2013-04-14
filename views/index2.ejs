@@ -356,9 +356,38 @@
 		    <%= include footer %>
 		</div>
 		<script type="text/javascript">
-
-
-
+			if(localStorage.listeningUser){
+				console.log('yy');
+				var userInfo = JSON.parse(localStorage.listeningUser);
+				  window.intercomSettings = {
+				    // TODO: The current logged in user's email address.
+				    email: userInfo.username,
+				    // TODO: The current logged in user's sign-up date as a Unix timestamp.
+				    created_at: 1234567890,
+				    app_id: "171c4511b2660bc64f6c104d71ff6afa0bc66cbb"
+				  };
+				  intercom ();
+			}else{
+				//console.log('nn')
+				$.ajax({
+					type: "POST",
+					url: "/addNewUser",
+					// data: { name: "John", location: "Boston" }
+					success:function( data ) {
+				  		console.log(data)
+				  		var parseData = JSON.parse(data)
+				  		localStorage.listeningUser = data;
+				  		window.intercomSettings = {
+							// TODO: The current logged in user's email address.
+							email: parseData.username,
+							// TODO: The current logged in user's sign-up date as a Unix timestamp.
+							created_at: 1234567890,
+							app_id: "171c4511b2660bc64f6c104d71ff6afa0bc66cbb"
+						};
+						intercom ();
+				  	}
+				});	
+			}
 			$('.fullview').click(function(){
 			    $("body").toggleClass("clean");
 			    $('#sidebar').toggleClass("hide-sidebar mobile-sidebar");
@@ -374,6 +403,39 @@
 				collapsible: false,
 				tabActiveClass: "current"
 			});
+
+			function intercom (){
+				var w = window;
+				var ic = w.Intercom;
+				if (typeof ic === "function") {
+					ic('reattach_activator');
+					ic('update', intercomSettings);
+				} else {
+					var d = document;
+					var i = function() {
+						i.c(arguments)
+					};
+					i.q = [];
+					i.c = function(args) {
+						i.q.push(args)
+					};
+					w.Intercom = i;
+
+					function l() {
+						var s = d.createElement('script');
+						s.type = 'text/javascript';
+						s.async = true;
+						s.src = 'https://api.intercom.io/api/js/library.js';
+						var x = d.getElementsByTagName('script')[0];
+						x.parentNode.insertBefore(s, x);
+					}
+					if (w.attachEvent) {
+						w.attachEvent('onload', l);
+					} else {
+						w.addEventListener('load', l, false);
+					}
+				};	
+			}
 
 		</script>
 	</body>
