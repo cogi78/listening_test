@@ -192,6 +192,14 @@
 					    			</div>
 					    			<div class="span8">
 					    				<h3>民眾求助專區</h3>
+					    				<ul>
+											<% for(var i=0; i<data.length; i++) {%>
+											   <li>
+											   	<p>標題：<%= data[i].title %></p>
+											   	<p>發表時間：<%= data[i].update %></p>
+											   </li>
+											<% } %>
+										</ul>
 					    				其他民眾求助，
 					    				<a href="/showhelp">請前往</a>
 					    			</div>

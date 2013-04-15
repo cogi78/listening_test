@@ -100,7 +100,12 @@ app.configure('development', function(){
 });
 
 app.get('/', function(req, res) {
-  res.render('index2');
+  Helpmemodel.find({},function(err,results){
+    res.render('index2',{
+      data: results
+    });
+  })
+
 });
 app.get('/aboutus', function(req, res) {
   res.render('aboutus');
