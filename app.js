@@ -53,6 +53,7 @@ var BugSendmodel = mongoose.model('BugSend');
 
 //helpme
 var HelpMeSchema = mongoose.Schema({
+  user:String,
   title: String,
   email: String,
   phone: String,
@@ -115,7 +116,7 @@ app.get('/sponsor', function(req, res) {
   res.render('sponsor');
 });
 app.post('/helpme',function(req,res){
-
+  console.log(req);
   //console.log(req);
   new Helpmemodel({
     user: req.body.username,
@@ -123,19 +124,14 @@ app.post('/helpme',function(req,res){
     email: req.body.email,
     phone: req.body.phone,
     social: req.body.social,
-    content: req.body.helpcontent,
-    update:''
+    content: req.body.helpcontent
   }).save(function(err) {
     if (err) {console.log('Error on save!')}
     else{
       res.end('success');
     }
-
   });
-
-
 })
-
 app.post('/bugsend', function(req, res) {
     console.log(req.body.bugtitle);
     console.log(req.body.bugemail);

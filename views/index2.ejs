@@ -394,8 +394,9 @@
 				var helpmetitle = $("input[name='helpmetitle']").attr('value'),
 					helpmeemail = $("input[name='helpmeemail']").attr('value'),
 					helpmephone = $("input[name='helpmephone']").attr('value'),
-					helpmetextarea = $("input[name='helpmetextarea']").val(),
+					helpmetextarea = $("textarea[name='helpmetextarea']").val(),
 					helpmesocial = $('input[name=optionsRadios]:checked').val();
+				console.log(helpmetextarea);
 				console.log(helpmesocial)
 				// if (helpmetitle=='' || helpmetextarea==''){
 				// 	alert('打*欄位務必填寫！');
