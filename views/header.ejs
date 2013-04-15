@@ -23,7 +23,7 @@
 </div>
 <!-- 彈跳視窗部分 -->
 <div class="alertbg"></div>
-<div class="helpmediv animated">
+<div class="helpmediv animated" ng-controller="helpmeController">
   <div class="widget">
     <div class="navbar">
       <div class="navbar-inner"><h6>Help me!請幫幫我！</h6>
@@ -35,7 +35,11 @@
       <p>＊為務必填寫</p>
       *標題：
       <input type="text" name="helpmetitle" class="span12">
-
+      *地區：
+      <select id="helpmelocationSelect" class="styled" style="opacity: 0;" >
+          <option ng-repeat="citiehelp in citiehelps" value="{{citiehelp.cz}}">{{citiehelp.cz}}</option>
+      </select> 
+      <br/>
       聯絡Email：（若您不想曝光可以不填寫）
       <input type="text" name="helpmeemail" class="span12">
       聯絡電話：（若您不想曝光可以不填寫）

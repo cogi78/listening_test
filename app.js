@@ -59,6 +59,7 @@ var HelpMeSchema = mongoose.Schema({
   title: String,
   email: String,
   phone: String,
+  location: String,
   social: Boolean,
   content: String,
   update:{ type:Date, default: Date.now}
@@ -130,6 +131,7 @@ app.post('/helpme',function(req,res){
     title: req.body.title,
     email: req.body.email,
     phone: req.body.phone,
+    location:req.body.location,
     social: req.body.social,
     content: req.body.helpcontent
   }).save(function(err) {

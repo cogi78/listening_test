@@ -195,6 +195,7 @@
 											<% for(var i=0; i<data.length; i++) {%>
 											   <li>
 											   	<p>標題：<%= data[i].title %></p>
+											   	<p>地區：<%= data[i].location %></p>
 											   	<p>發表時間：<%= data[i].update %></p>
 											   </li>
 											<% } %>
@@ -391,10 +392,12 @@
 
 			function sendhelpme (){
 				var helpmetitle = $("input[name='helpmetitle']").attr('value'),
+					helpmelocation = $('select#helpmelocationSelect option:selected').val(),
 					helpmeemail = $("input[name='helpmeemail']").attr('value'),
 					helpmephone = $("input[name='helpmephone']").attr('value'),
 					helpmetextarea = $("textarea[name='helpmetextarea']").val(),
 					helpmesocial = $('input[name=optionsRadios]:checked').val();
+
 				console.log(helpmetextarea);
 				console.log(helpmesocial)
 				// if (helpmetitle=='' || helpmetextarea==''){
@@ -414,6 +417,7 @@
 				// if(helpmephone!=''){
 					helpmedata.phone = helpmephone;
 				// }
+				helpmedata.location = helpmelocation;
 				helpmedata.social = helpmesocial;
 				helpmedata.helpcontent = helpmetextarea;
 				//console.log('helpmedata:'+helpmedata);
@@ -424,6 +428,9 @@
 					success:function( data ) {
 				  		if (data == 'success'){
 				  			alert('已傳送成功！');
+				  			$('.helpmediv').css('display','none');
+       						$('.alertbg').css('display','none');
+        					$('.helpmediv').removeClass('fadeIn');
 				  		}
 				  	}
 				});	

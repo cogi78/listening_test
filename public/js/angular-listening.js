@@ -68,16 +68,12 @@ main.factory('cities',function(){
 
 /* angular bootstrap ui end */
 
-
 function lawListView($scope,Data){
-
   //console.log($scope.data);
-
-
-
 }
-
-
+function helpmeController($scope,cities){
+    $scope.citiehelps = cities;
+}
 function lsController($scope,Data,likelistData,cities){
 
   $scope.data = Data;  
