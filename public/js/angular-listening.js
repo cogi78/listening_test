@@ -19,12 +19,14 @@
 // tag5:身心障礙
 // value5:是
 //   }];
-var citylists_cz = [
-  '臺北市','新北市','臺中市','臺南市','高雄市','桃園縣','新竹縣','苗栗縣','彰化縣','南投縣','雲林縣','嘉義縣','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣','基隆市','新竹市','嘉義市'
-]
-var citylists = [
-  'TPE','TPQ','TXG','TNN','KHH','TAO','HSQ','MIA','CHA','NAN','YUN','CYQ','PIF','ILA','HUA','TTT','PEN','JME','LJF','KEE','HSZ','CYI'
-]
+// var citylists_cz = [
+//   '臺北市','新北市','臺中市','臺南市','高雄市','桃園縣','新竹縣','苗栗縣','彰化縣','南投縣','雲林縣','嘉義縣','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣','基隆市','新竹市','嘉義市'
+// ]
+// var citylists = [
+//   'TPE','TPQ','TXG','TNN','KHH','TAO','HSQ','MIA','CHA','NAN','YUN','CYQ','PIF','ILA','HUA','TTT','PEN','JME','LJF','KEE','HSZ','CYI'
+// ]
+
+var cities = [{cz:'臺北市',en:'TPE'},{cz:'新北市',en:'TPQ'},{cz:'臺中市',en:'TXG'},{cz:'臺南市',en:'TNN'},{cz:'高雄市',en:'KHH'},{cz:'桃園縣',en:'TAO'},{cz:'新竹縣',en:'HSQ'},{cz:'苗栗縣',en:'MIA'},{cz:'彰化縣',en:'CHA'},{cz:'南投縣',en:'NAN'},{cz:'雲林縣',en:'YUN'},{cz:'嘉義縣',en:'CYQ'},{cz:'屏東縣',en:'PIF'},{cz:'宜蘭縣',en:'ILA'},{cz:'花蓮縣',en:'HUA'},{cz:'臺東縣',en:'TTT'},{cz:'澎湖縣',en:'PEN'},{cz:'金門縣',en:'JME'},{cz:'連江縣',en:'LJF'},{cz:'基隆市',en:'KEE'},{cz:'新竹市',en:'HSZ'},{cz:'嘉義市',en:'CYI'}]
 
 
 var selListData = {
@@ -59,13 +61,10 @@ main.factory('likelistData',function(){
   return likelistsparse;
 })
 
-main.factory('citylists_cz',function(){
-  return citylists_cz;
+main.factory('cities',function(){
+  return cities;
 })
 
-main.factory('citylists',function(){
-  return citylists;
-})
 
 /* angular bootstrap ui end */
 
@@ -79,13 +78,12 @@ function lawListView($scope,Data){
 }
 
 
-function lsController($scope,Data,likelistData,citylists_cz,citylists){
+function lsController($scope,Data,likelistData,cities){
 
   $scope.data = Data;  
   $scope.likelistdata = likelistData;
-  $scope.citylists_cz = citylists_cz;
-  $scope.citylists = citylists;
-  
+  $scope.cities = cities;
+
   $scope.sel = function(law,cz_law){
     switch(law)
     {

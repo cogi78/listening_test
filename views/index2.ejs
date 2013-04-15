@@ -271,18 +271,9 @@
 					</div>
 					<div class="widget" data-step="1" data-intro="請選擇第一階段搜尋關鍵字">
 						地區：
-						<div class="selector" id="uniform-undefined"><span>請選擇欲查詢地區</span>
-							<select name="select2" class="styled" style="opacity: 0;">
-		                        <option value="opt1">Option 1</option>
-		                        <option value="opt2">Option 2</option>
-		                        <option value="opt3">Option 3</option>
-		                        <option value="opt4">Option 4</option>
-		                        <option value="opt5">Option 5</option>
-		                        <option value="opt6">Option 6</option>
-		                        <option value="opt7">Option 7</option>
-		                        <option value="opt8">Option 8</option>
-	                    	</select>
-	                    </div>
+						<select name="locationSelect" class="styled" style="opacity: 0;" >
+	                        <option ng-repeat="city in cities" value="{{city.en}}">{{city.cz}}</option>
+                    	</select> 
 	                    福利類別：
 	                    <div class="btn" ng-click="sel('education','教育')">教育</div>       
 						<div class="btn" ng-click="sel('work','工作')">工作</div>
@@ -363,6 +354,7 @@
 		    <%= include footer %>
 		</div>
 		<script type="text/javascript">
+		$(".ui-datepicker-month, .styled, .dataTables_length select").uniform({ radioClass: 'choice' });
 			if(localStorage.listeningUser){
 				//console.log('yy');
 				var userInfo = JSON.parse(localStorage.listeningUser);
