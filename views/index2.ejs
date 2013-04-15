@@ -25,7 +25,7 @@
 		    			<div class="widget">
 		    				<h6 class="widget-name"><i class="ico-star"></i>請增加福利條件</h6>
 		    			</div>
-		    			<div class="widget">
+		    			<div class="widget" data-step="2" data-intro="增加第二階段搜尋關鍵字">
 							<div class="btn">單親</div> 
 							<div class="btn">離婚</div> 
 							<div class="btn">失業</div> 
@@ -172,7 +172,8 @@
 		    		<div ng-controller="CollapseDemoCtrl">
 		    		<div class="row-fluid">
 						<div class="span12">
-							<button class="btn" style="float:left;diplay:inline-block;margin-top:5px;">網站導覽</button>
+							<button class="btn" style="float:left;diplay:inline-block;margin-top:5px;" href="javascript:void(0);" onclick="javascript:introJs().start();">網站導覽
+							</button>
 							<h5 style="font-style: italic;margin-top:10px;text-align:center;diplay:inline-block">一個成功的社會並不是看富裕的人過得多優渥，而是弱勢的如何自在的生存
 							<button class="btn" style="float:right;diplay:inline-block;margin-top:-5px;margin-left:2px"><a class="fullview"></a></button>
 							<button class="btn" style="float:right;diplay:inline-block;margin-top:-5px;" ng-click="isCollapsed = !isCollapsed">隱藏</button></h5>
@@ -270,7 +271,7 @@
 				    </div>
 					</div>
 					</div>
-					<div class="widget">
+					<div class="widget" data-step="1" data-intro="請選擇第一階段搜尋關鍵字">
 						地區：
 						<div class="selector" id="uniform-undefined"><span>請選擇欲查詢地區</span>
 							<select name="select2" class="styled" style="opacity: 0;">
@@ -298,7 +299,7 @@
 						
 					</div>
 		    		<!-- 當 -->
-		    		<div class="widget">
+		    		<div class="widget" data-step="3" data-intro="您欲查詢的結果顯示在這">
 						<div class="navbar">
 							<div class="navbar-inner">
 								<h6>當前搜尋條件:</h6>
