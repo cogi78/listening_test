@@ -19,7 +19,12 @@
 // tag5:身心障礙
 // value5:是
 //   }];
-
+var citylists_cz = [
+  '臺北市','新北市','臺中市','臺南市','高雄市','桃園縣','新竹縣','苗栗縣','彰化縣','南投縣','雲林縣','嘉義縣','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣','基隆市','新竹市','嘉義市'
+]
+var citylists = [
+  'TPE','TPQ','TXG','TNN','KHH','TAO','HSQ','MIA','CHA','NAN','YUN','CYQ','PIF','ILA','HUA','TTT','PEN','JME','LJF','KEE','HSZ','CYI'
+]
 
 
 var selListData = {
@@ -33,8 +38,7 @@ var selListData = {
   assistivedevice: 'n',
   emergency: 'n',
   socialinsurance: 'n'
-
-}
+};
 
 var main = angular.module('lsMain', ['ui.bootstrap']);
 
@@ -42,16 +46,46 @@ var main = angular.module('lsMain', ['ui.bootstrap']);
 function CollapseDemoCtrl($scope) {
     $scope.isCollapsed = false;
   }
-  main.factory('Data',function(){
+main.factory('Data',function(){
     return selListData
 })
+main.factory('likelistData',function(){
+  if (localStorage.likelists){
+  var likelistsparse = JSON.parse(localStorage.likelists);
+  }else{
+    localStorage.likelists = {};
+    likelistsparse = [];
+  }
+  return likelistsparse;
+})
+
+main.factory('citylists_cz',function(){
+  return citylists_cz;
+})
+
+main.factory('citylists',function(){
+  return citylists;
+})
+
 /* angular bootstrap ui end */
 
 
-function lsController($scope,Data){
+function lawListView($scope,Data){
+
+  //console.log($scope.data);
+
+
+
+}
+
+
+function lsController($scope,Data,likelistData,citylists_cz,citylists){
 
   $scope.data = Data;  
-
+  $scope.likelistdata = likelistData;
+  $scope.citylists_cz = citylists_cz;
+  $scope.citylists = citylists;
+  
   $scope.sel = function(law,cz_law){
     switch(law)
     {
@@ -152,9 +186,12 @@ function lsController($scope,Data){
     $scope.data.socialinsurance= 'n'
     console.log($scope.data);
   }
-
+  $scope.savelist = function (){
+    $scope.likelistdata.push($scope.data)
+    console.log($scope.likelistdata);
+    localStorage.likelists = JSON.stringify($scope.likelistdata);
+  }
   //$scope.selList = 
-
 }
 // cartshopping.factory('Data',function(){
 //   return data
@@ -205,6 +242,17 @@ main.directive('opentab',function(){
 
   }
 })
+
+// main.directive('savelist',function(){
+//   return function(scope,element){
+//     element.bind('mousedown',function(){
+//       localStorage.likelists = $scope.data
+//     })
+
+//   }
+// })
+
+
 // cartshopping.directive("delete",function(){
 //   return function (scope,element){
 //     //console.log(element);

@@ -118,7 +118,7 @@
 							    document.write('<div class="widget"><h3>很抱歉您的瀏覽器不支援此項功能，建議更換到最新版本！</h3></div>');
 							}
 		    			</script>
-		    			<div class="widget">
+		    			<div class="widget" ng-controller="lawListView">
 		    				<ul class="social-stats">
 				        		<li>
 				        			<div style="width:20px;height:20px;margin-top:10px;border:1px solid #ccc;float:left;margin-left:0;border-radius:20px;"></div>
@@ -165,7 +165,6 @@
 								 <li><div class="depth" style="background-color:#4ca15b"><a href="" title="" class="tip" data-original-title="View statement"><i class="icon-plus"></i></a></div></li>
 							</ul>
 						</div> -->
-
 		    </div>
 		    <div id="content">
 		    	<div class="wrapper">
@@ -177,7 +176,6 @@
 							<h5 style="font-style: italic;margin-top:10px;text-align:center;diplay:inline-block">一個成功的社會並不是看富裕的人過得多優渥，而是弱勢的如何自在的生存
 							<button class="btn" style="float:right;diplay:inline-block;margin-top:-5px;margin-left:2px"><a class="fullview"></a></button>
 							<button class="btn" style="float:right;diplay:inline-block;margin-top:-5px;" ng-click="isCollapsed = !isCollapsed">隱藏</button></h5>
-							
 						</div>
 					</div>
 					<div class="actions-wrapper" collapse="isCollapsed">
@@ -306,7 +304,7 @@
 								<!-- <div class="btn btn-success">高雄市政府</div>
 								<div class="btn btn-success">身障（聽障）</div><div class="btn btn-success">輔具申請</div> -->
 								<p>{{selList}}
-								<button type="button" class="btn btn-info pull-right">儲存查詢組合</button>
+								<button type="button" class="btn btn-info pull-right" ng-click="savelist()">儲存查詢組合</button>
 								<button type="button" class="btn btn-danger pull-right" ng-click="clearsel()">清空查詢</button>
 							</div>
 						</div>
@@ -442,6 +440,7 @@
 			$('.fullview').click(function(){
 			    $("body").toggleClass("clean");
 			    $('#sidebar').toggleClass("hide-sidebar mobile-sidebar");
+
 			    $('#content').toggleClass("full-content");
 			});
 			$('.sidebar-tabs').easytabs({
