@@ -8,6 +8,8 @@ var express = require('express')
   , path = require('path');
 var app = express();
 
+
+
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
@@ -157,6 +159,14 @@ app.post('/addNewUser',function(req,res){
     res.end(JSONinfo);
   })
   // new RecordUsermodel();
+})
+
+app.get('/showhelp',function(req,res){
+  Helpmemodel.find({},function(err,results){
+    res.render('showhelp',{
+      data: results
+    })
+  })
 })
 
 
