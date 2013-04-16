@@ -272,8 +272,8 @@
 					</div>
 					<div class="widget" data-step="1" data-intro="請選擇第一階段搜尋關鍵字">
 						地區：
-						<select name="locationSelect" class="styled" style="opacity: 0;" >
-	                        <option ng-repeat="city in cities" value="{{city.en}}">{{city.cz}}</option>
+						<select name="locationSelect" id="locationSelect" ng-change="selLocation()" ng-model="selLocationValue" class="styled" style="opacity: 0;" >
+	                        <option ng-repeat="city in cities" value="{{city.cz}}" >{{city.cz}}</option>
                     	</select> 
 	                    福利類別：
 	                    <div class="btn" ng-click="sel('education','教育')">教育</div>       
@@ -289,14 +289,36 @@
 						
 					</div>
 		    		<!-- 當 -->
+		    		<div class="savelistdiv animated">
+					  <div class="widget">
+					    <div class="navbar">
+					      <div class="navbar-inner"><h6>儲存查詢組合</h6>
+					      </div>
+					    </div>
+					    <div class="wrapper">
+					      <div class="row-fluid">
+					        <h4>請你為此查詢組合增加一個描述</h4>
+					        <input class="span12" type="text" name="datetime" ng-model="description">
+					        ex.肢障朋友申請輔具
+					        <br/>
+					        <div class="btn btn-success" ng-click="savelist()">送出</div>
+					        <div class="btn btn-danger savelistcancel">取消</div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
 		    		<div class="widget" data-step="3" data-intro="您欲查詢的結果顯示在這">
 						<div class="navbar">
 							<div class="navbar-inner">
 								<h6>當前搜尋條件:</h6>
+								<ul ng-repeat="seldatalist in seldata">
+									<li class="btn btn-success" style="float:left">{{seldatalist.name}}</li>
+								</ul>
+								
 								<!-- <div class="btn btn-success">高雄市政府</div>
 								<div class="btn btn-success">身障（聽障）</div><div class="btn btn-success">輔具申請</div> -->
-								<p>{{selList}}
-								<button type="button" class="btn btn-info pull-right" ng-click="savelist()">儲存查詢組合</button>
+								<!-- <button type="button" class="btn btn-info pull-right" ng-click="savelist()">儲存查詢組合</button> -->
+								<button type="button" class="btn btn-info pull-right openhelpdiv">儲存查詢組合</button>
 								<button type="button" class="btn btn-danger pull-right" ng-click="clearsel()">清空查詢</button>
 							</div>
 						</div>
@@ -355,7 +377,8 @@
 		    <%= include footer %>
 		</div>
 		<script type="text/javascript">
-		$(".ui-datepicker-month, .styled, .dataTables_length select").uniform({ radioClass: 'choice' });
+			$(".ui-datepicker-month, .styled, .dataTables_length select").uniform({ radioClass: 'choice' });
+			
 			if(localStorage.listeningUser){
 				//console.log('yy');
 				var userInfo = JSON.parse(localStorage.listeningUser);
@@ -389,7 +412,6 @@
 				});	
 			}
 
-
 			function sendhelpme (){
 				var helpmetitle = $("input[name='helpmetitle']").attr('value'),
 					helpmelocation = $('select#helpmelocationSelect option:selected').val(),
@@ -398,8 +420,8 @@
 					helpmetextarea = $("textarea[name='helpmetextarea']").val(),
 					helpmesocial = $('input[name=optionsRadios]:checked').val();
 
-				console.log(helpmetextarea);
-				console.log(helpmesocial)
+				//console.log(helpmetextarea);
+				//console.log(helpmesocial)
 				// if (helpmetitle=='' || helpmetextarea==''){
 				// 	alert('打*欄位務必填寫！');
 				// 	break;

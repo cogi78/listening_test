@@ -30,6 +30,8 @@ var cities = [{cz:'臺北市',en:'TPE'},{cz:'新北市',en:'TPQ'},{cz:'臺中市
 
 
 var selListData = {
+  description:'',
+  location: '',
   education: 'n',
   work: 'n',
   transportation: 'n',
@@ -53,16 +55,23 @@ main.factory('Data',function(){
 })
 main.factory('likelistData',function(){
   if (localStorage.likelists){
-  var likelistsparse = JSON.parse(localStorage.likelists);
+    var likelistsparse = JSON.parse(localStorage.likelists);
   }else{
     localStorage.likelists = {};
-    likelistsparse = [];
+    var likelistsparse=[] ;
+    var space ={};
+    likelistsparse.push(space);
+    localStorage.likelists = JSON.stringify(likelistsparse);
   }
   return likelistsparse;
 })
 
 main.factory('cities',function(){
   return cities;
+});
+var seldatalist = [];
+main.factory('seldatas',function(){
+  return seldatalist;
 })
 
 
@@ -74,21 +83,28 @@ function lawListView($scope,Data){
 function helpmeController($scope,cities){
     $scope.citiehelps = cities;
 }
-function lsController($scope,Data,likelistData,cities){
+function lsController($scope,Data,likelistData,cities,seldatas){
 
   $scope.data = Data;  
   $scope.likelistdata = likelistData;
   $scope.cities = cities;
-
+  $scope.seldata = seldatas;
+  //$scope.sellawdata = [];
   $scope.sel = function(law,cz_law){
     switch(law)
     {
+    case 'location':
+      $scope.data.location = 'y';
+      break;
     case 'education':
       if ($scope.data.education== 'y'){
         $scope.data.education = 'n'
       }
       else{
-        $scope.data.education= 'y'
+        $scope.data.education= 'y';
+        $scope.seldata.push({name:'教育'})
+        //console.log($scope.seldata.push({name:'教育'});
+        //$scope.sellawdata.list = '教育';
       }
       break;
     case 'work':
@@ -96,7 +112,8 @@ function lsController($scope,Data,likelistData,cities){
         $scope.data.work = 'n'
       }
       else{
-        $scope.data.work= 'y'
+        $scope.data.work= 'y';
+        $scope.seldata.push({name:'工作'})
       }
       break;
     case 'transportation':
@@ -104,7 +121,8 @@ function lsController($scope,Data,likelistData,cities){
         $scope.data.transportation= 'n'
       }
       else{
-        $scope.data.transportation= 'y'
+        $scope.data.transportation= 'y';
+        $scope.seldata.push({name:'交通'})
       }
       break;
     case 'living':
@@ -113,6 +131,7 @@ function lsController($scope,Data,likelistData,cities){
       }
       else{
         $scope.data.living= 'y'
+        $scope.seldata.push({name:'購屋住屋'})
       }
       break;
     case 'allowance':
@@ -120,7 +139,8 @@ function lsController($scope,Data,likelistData,cities){
         $scope.data.allowance= 'n'
       }
       else{
-        $scope.data.allowance= 'y'
+        $scope.data.allowance= 'y';
+        $scope.seldata.push({name:'生活津貼'})
       }
       break;
     case 'tax':
@@ -128,7 +148,8 @@ function lsController($scope,Data,likelistData,cities){
         $scope.data.tax= 'n'
       }
       else{
-        $scope.data.tax= 'y'
+        $scope.data.tax= 'y';
+        $scope.seldata.push({name:'稅捐減免'})
       }
       break;
     case 'medical':
@@ -136,7 +157,8 @@ function lsController($scope,Data,likelistData,cities){
         $scope.data.medical= 'n'
       }
       else{
-        $scope.data.medical= 'y'
+        $scope.data.medical= 'y';
+        $scope.seldata.push({name:'醫療照顧'})
       }
       break;
     case 'assistivedevice':
@@ -144,7 +166,8 @@ function lsController($scope,Data,likelistData,cities){
         $scope.data.assistivedevice= 'n'
       }
       else{
-        $scope.data.assistivedevice= 'y'
+        $scope.data.assistivedevice= 'y';
+        $scope.seldata.push({name:'輔具申請'})
       }
       break;
     case 'emergency':
@@ -152,7 +175,8 @@ function lsController($scope,Data,likelistData,cities){
         $scope.data.emergency= 'n'
       }
       else{
-        $scope.data.emergency= 'y'
+        $scope.data.emergency= 'y';
+        $scope.seldata.push({name:'急難救助'})
       }
       break;
     case 'socialinsurance':
@@ -160,7 +184,8 @@ function lsController($scope,Data,likelistData,cities){
         $scope.data.socialinsurance= 'n'
       }
       else{
-        $scope.data.socialinsurance= 'y'
+        $scope.data.socialinsurance= 'y';
+        $scope.seldata.push({name:'社會保險補助'})
       }
       break;
     }
@@ -177,14 +202,41 @@ function lsController($scope,Data,likelistData,cities){
     $scope.data.medical= 'n';
     $scope.data.assistivedevice= 'n';
     $scope.data.emergency ='n';
-    $scope.data.socialinsurance= 'n'
+    $scope.data.socialinsurance= 'n';
+    $scope.seldata = [];
     console.log($scope.data);
   }
   $scope.savelist = function (){
+    $scope.data.description = $scope.description;
     $scope.likelistdata.push($scope.data)
     console.log($scope.likelistdata);
     localStorage.likelists = JSON.stringify($scope.likelistdata);
   }
+  $scope.hidebtn = function(){
+    if($scope.data.education == 'n')
+    {
+      console.log('hihi');
+    }
+  }
+  $scope.selLocation = function (){
+    //console.log($scope.selLocationValue)
+    $scope.data.location = $scope.selLocationValue;
+    $scope.seldata.push({name:$scope.selLocationValue})
+    console.log($scope.data);
+  }
+
+    //console.log('hihi'+ttt.education);
+    // $scope.data.work= 'n';
+    // $scope.data.transportation= 'n';
+    // $scope.data.living= 'n';
+    // $scope.data.allowance= 'n';
+    // $scope.data.tax= 'n';
+    // $scope.data.medical= 'n';
+    // $scope.data.assistivedevice= 'n';
+    // $scope.data.emergency ='n';
+    // $scope.data.socialinsurance= 'n'
+  // $scope.nowlikelist = ttt.education;
+
   //$scope.selList = 
 }
 // cartshopping.factory('Data',function(){
@@ -236,6 +288,16 @@ main.directive('opentab',function(){
 
   }
 })
+
+// main.directive('SelLocation',function(){
+//   return function(scope,element){
+//     element.change(function(){
+//       console.log('yoyo')
+//     })
+
+//   }
+// })
+
 
 // main.directive('savelist',function(){
 //   return function(scope,element){
