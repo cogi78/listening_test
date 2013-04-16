@@ -2,8 +2,6 @@
  * listening 福利請聽
  */
 
-
-
 //一開始抓取data請先滿足一下格式 
 // var data = [{
 // source:'身心障礙者福利'
@@ -54,14 +52,14 @@ main.factory('Data',function(){
     return selListData
 })
 main.factory('likelistData',function(){
-  if (localStorage.likelists){
-    var likelistsparse = JSON.parse(localStorage.likelists);
+  if (localStorage.likelistsdata){
+    var likelistsparse = JSON.parse(localStorage.likelistsdata);
   }else{
-    localStorage.likelists = {};
+    localStorage.likelistsdata = {};
     var likelistsparse=[] ;
     var space ={};
     likelistsparse.push(space);
-    localStorage.likelists = JSON.stringify(likelistsparse);
+    localStorage.likelistsdata = JSON.stringify(likelistsparse);
   }
   return likelistsparse;
 })
@@ -210,7 +208,7 @@ function lsController($scope,Data,likelistData,cities,seldatas){
     $scope.data.description = $scope.description;
     $scope.likelistdata.push($scope.data)
     console.log($scope.likelistdata);
-    localStorage.likelists = JSON.stringify($scope.likelistdata);
+    localStorage.likelistsdata = JSON.stringify($scope.likelistdata);
   }
   $scope.hidebtn = function(){
     if($scope.data.education == 'n')
@@ -224,21 +222,9 @@ function lsController($scope,Data,likelistData,cities,seldatas){
     $scope.seldata.push({name:$scope.selLocationValue})
     console.log($scope.data);
   }
-
-    //console.log('hihi'+ttt.education);
-    // $scope.data.work= 'n';
-    // $scope.data.transportation= 'n';
-    // $scope.data.living= 'n';
-    // $scope.data.allowance= 'n';
-    // $scope.data.tax= 'n';
-    // $scope.data.medical= 'n';
-    // $scope.data.assistivedevice= 'n';
-    // $scope.data.emergency ='n';
-    // $scope.data.socialinsurance= 'n'
-  // $scope.nowlikelist = ttt.education;
-
-  //$scope.selList = 
 }
+
+
 // cartshopping.factory('Data',function(){
 //   return data
 // })
@@ -302,7 +288,7 @@ main.directive('opentab',function(){
 // main.directive('savelist',function(){
 //   return function(scope,element){
 //     element.bind('mousedown',function(){
-//       localStorage.likelists = $scope.data
+//       localStorage.likelistsdata = $scope.data
 //     })
 
 //   }
